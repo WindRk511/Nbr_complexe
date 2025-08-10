@@ -19,6 +19,7 @@ void exe_menu(int c)
 	float a,m;
 	int n;
 	char s;
+	char* ps = &s;
 	switch (c) {
 		case 1: printf("Entre le nombre complexe:\n");
 			complex_recu(&z);
@@ -31,8 +32,8 @@ void exe_menu(int c)
 			complex_recu(&z1);
 			printf("\nLe second :\n");
 			complex_recu(&z2);
-			printf("signe d'operation de calcul (+,-,*,/) :  ");
-			scanf("%c",&s);
+			printf("L'operade (+,-,*,/) :  ");
+			scanf(" %c",ps);
 			z = complex_ope(z1,s,z2);
 			oppc_affichage(z1,s,z2,z);
 			break;
