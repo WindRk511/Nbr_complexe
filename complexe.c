@@ -1,4 +1,5 @@
 #include<stdlib.h>
+#include<stdio.h>
 #include<math.h>
 #include"complexe.h"
 
@@ -29,21 +30,11 @@ cplx complex_conj(cplx z)
 }
 
 //addition entre deux nombre complexe
-cplx cplx_add(z1,z2) 
+cplx cplx_add(cplx z1, cplx z2) 
 {
 	cplx z;
 	z.i = z1.i + z2.i;
 	z.r = z1.r + z2.r;
-
-	return z;
-}
-
-// sous-traction entre deux nombre complexe
-cplx cplx_add(cplx z1, cplx z2) 
-{
-	cplx z;
-	z.i = z1.i - z2.i;
-	z.r = z1.r - z2.r;
 
 	return z;
 }
@@ -69,7 +60,15 @@ cplx cplx_div(cplx z1,cplx z2)
 	return z;
 }
 
+cplx cplx_sous(cplx z1, cplx z2) 
+{
+	cplx z;
+	z2.i = -(z2.i);
+	z2.r = -(z2.r);
 
+	z = cplx_add(z1,z2);
+	return z;
+}	
 //l'operation entre complexe
 cplx complex_ope(cplx z1, char s, cplx z2) 
 {
@@ -102,7 +101,7 @@ cplx complex_ope(cplx z1, char s, cplx z2)
 //inverse du nombre complexe
 cplx complex_inv(cplx z1) 
 {
-	if (z1.r == à && z1.i == 0) {
+	if (z1.r == 0 && z1.i == 0) {
 		printf("On ne peut pas l'inverse d'un nombre nul");
 		exit (-1);
 	}
@@ -117,6 +116,7 @@ cplx complex_inv(cplx z1)
 cplx complex_puis(cplx z1, int n) 
 {
 	cplx  z;
+	int i;
 
 	if (n == 0) {
 		z.r = 1;
@@ -133,14 +133,14 @@ cplx complex_puis(cplx z1, int n)
 	else if(n > 0) {
 		z = z1;
 		for(i = 0; i < n; i++){
-			z = z*z1;
+			z = cplx_mult(z,z1);
 		}
 	}
 	else if (n < 0) {
 		z1 = complex_inv(z1);
 		z = z1;
 		for (i = 0; i < n; i++) {
-			z = z*z1;
+			z = cplx_mult(z,z1);
 		}
 	}	
 }
