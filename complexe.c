@@ -135,6 +135,7 @@ cplx complex_puis(cplx z1, int n)
 		for(i = 0; i < n; i++){
 			z = cplx_mult(z,z1);
 		}
+		return z;
 	}
 	else if (n < 0) {
 		z1 = complex_inv(z1);
@@ -142,6 +143,7 @@ cplx complex_puis(cplx z1, int n)
 		for (i = 0; i < n; i++) {
 			z = cplx_mult(z,z1);
 		}
+		return z;
 	}	
 }
 
