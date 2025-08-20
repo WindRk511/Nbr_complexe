@@ -45,6 +45,7 @@ void exe_menu(int c)
 			complex_aff(z1);
 			printf(" puissance %d est ",n);
 			complex_aff(z);
+			break;
 		default:
 			printf("Aucun correspondant!\n");
 			break;

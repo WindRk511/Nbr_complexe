@@ -18,3 +18,8 @@ void oppc_affichage(cplx z1, char s, cplx z2, cplx z);
 
 
 
+//#include"complexe.h"
+//void complex_recu(cplx* z1);
+//void complex_menu();
+//void exe_menu(int c);
+
